@@ -7,20 +7,19 @@
 
 import Foundation
 
-struct Sector {
-    
-    struct Point {
-        let x: Double
-        let y: Double
-    }
-    
-    let center: Point
+struct Coordinate {
+    let x: Double
+    let y: Double
+}
+
+struct RadialCoordinator {
+    let center: Coordinate
     let radius: Double
     let angleDeg: Double
     
-    var radialPoint: Point {
+    var point: Coordinate {
         let angle = angleDeg * Double.pi / 180
-        return Point(
+        return Coordinate(
             x: (center.x + radius * cos(angle)).rounded(),
             y: (center.y + radius * sin(angle)).rounded()
         )
