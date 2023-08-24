@@ -12,7 +12,7 @@ struct СamomileApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PetalView()
+            CamomileView()
         }
     }
 }

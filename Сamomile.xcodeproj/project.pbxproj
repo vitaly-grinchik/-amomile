@@ -8,19 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		D8629D852A960443006CB5AC /* СamomileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8629D842A960443006CB5AC /* СamomileApp.swift */; };
-		D8629D872A960443006CB5AC /* PetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8629D862A960443006CB5AC /* PetalView.swift */; };
+		D8629D872A960443006CB5AC /* CamomileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8629D862A960443006CB5AC /* CamomileView.swift */; };
 		D8629D892A960451006CB5AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8629D882A960451006CB5AC /* Assets.xcassets */; };
 		D8629D8C2A960451006CB5AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8629D8B2A960451006CB5AC /* Preview Assets.xcassets */; };
-		D8629D932A960483006CB5AC /* RadialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8629D922A960483006CB5AC /* RadialCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D8629D812A960443006CB5AC /* Сamomile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Сamomile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8629D842A960443006CB5AC /* СamomileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СamomileApp.swift"; sourceTree = "<group>"; };
-		D8629D862A960443006CB5AC /* PetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetalView.swift; sourceTree = "<group>"; };
+		D8629D862A960443006CB5AC /* CamomileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamomileView.swift; sourceTree = "<group>"; };
 		D8629D882A960451006CB5AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8629D8B2A960451006CB5AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D8629D922A960483006CB5AC /* RadialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +51,8 @@
 		D8629D832A960443006CB5AC /* Сamomile */ = {
 			isa = PBXGroup;
 			children = (
-				D8629D942A960D01006CB5AC /* Helpers */,
 				D8629D842A960443006CB5AC /* СamomileApp.swift */,
-				D8629D862A960443006CB5AC /* PetalView.swift */,
+				D8629D862A960443006CB5AC /* CamomileView.swift */,
 				D8629D882A960451006CB5AC /* Assets.xcassets */,
 				D8629D8A2A960451006CB5AC /* Preview Content */,
 			);
@@ -68,14 +65,6 @@
 				D8629D8B2A960451006CB5AC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		D8629D942A960D01006CB5AC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				D8629D922A960483006CB5AC /* RadialCoordinator.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8629D872A960443006CB5AC /* PetalView.swift in Sources */,
+				D8629D872A960443006CB5AC /* CamomileView.swift in Sources */,
 				D8629D852A960443006CB5AC /* СamomileApp.swift in Sources */,
-				D8629D932A960483006CB5AC /* RadialCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

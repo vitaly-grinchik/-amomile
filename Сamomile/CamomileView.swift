@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PetalView: View {
+struct CamomileView: View {
     // Flower abstract proportion ratios:
     private let centerRadiusRatio = 0.25
     private let controlRadiusRatio = 0.8
@@ -88,9 +88,33 @@ struct PetalView: View {
     }
 }
 
-struct PetalView_Previews: PreviewProvider {
+struct RadialLocator {
+    
+    struct Point {
+        let x: Double
+        let y: Double
+    }
+    
+    let center: Point
+    let radius: Double
+    let angleDeg: Double
+    
+    var x: Double {
+        (center.x + radius * cos(angle)).rounded()
+    }
+    
+    var y: Double {
+        (center.y + radius * sin(angle)).rounded()
+    }
+
+    private var angle: Double {
+        angleDeg * Double.pi / 180
+    }
+}
+
+struct CamomileView_Previews: PreviewProvider {
     static var previews: some View {
-        PetalView()
+        CamomileView()
             .frame(width: 200, height: 200)
     }
 }
