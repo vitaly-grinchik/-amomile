@@ -11,7 +11,7 @@ struct PetalView: View {
     // Flower abstract proportion ratios:
     private let centerRadiusRatio = 0.25
     private let controlRadiusRatio = 0.8
-    private let qtyOfPetals = 12
+    private let qtyOfPetals = 18
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,10 +24,6 @@ struct PetalView: View {
             let centralRadius = centerRadiusRatio * size / 2
             let curvatureRadius = controlRadiusRatio  * size / 2
             let period = Int(360 / qtyOfPetals)
-//
-//            Circle()
-//                .scale(centerRadiusRatio)
-//                .fill(.yellow)
             
             ForEach(0..<qtyOfPetals) { angle in
                 
@@ -47,13 +43,13 @@ struct PetalView: View {
                     let control1 = RadialLocator(
                         center: flowerCenter,
                         radius: curvatureRadius,
-                        angleDeg: Double(period * angle - 20)
+                        angleDeg: Double(period * angle - 15)
                     )
                     
                     let control2 = RadialLocator(
                         center: flowerCenter,
                         radius: curvatureRadius,
-                        angleDeg: Double(period * angle + 20)
+                        angleDeg: Double(period * angle + 15)
                     )
                     
                     path.move(to: CGPoint(x: petalStart.x, y: petalStart.y))
