@@ -26,7 +26,6 @@ struct PetalView: View {
             let period = Int(360 / qtyOfPetals)
             
             ForEach(0..<qtyOfPetals) { angle in
-                
                 Path { path in
                     let petalStart = RadialLocator(
                         center: flowerCenter,
