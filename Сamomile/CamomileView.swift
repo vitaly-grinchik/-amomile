@@ -25,6 +25,8 @@ struct CamomileView: View {
             let curvatureRadius = controlRadiusRatio  * size / 2
             let period = Int(360 / qtyOfPetals)
             
+            
+            // Draw petals
             ForEach(0..<qtyOfPetals) { angle in
                 Path { path in
                     let petalStart = RadialLocator(
@@ -71,6 +73,7 @@ struct CamomileView: View {
                 )
             }
 
+            // Draw flower's center
             Path { path in
                 path.addArc(
                     center: CGPoint(
