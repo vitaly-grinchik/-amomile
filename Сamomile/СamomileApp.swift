@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct СamomileApp: App {
+
     var body: some Scene {
         WindowGroup {
             PetalView()

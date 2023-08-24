@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct PetalView: View {
+    // Flower abstract proportion ratios:
+    private let centerRadiusRatio = 0.25
+    private let controlRadiusRatio = 0.8
+    private let qtyOfPetals = 12
     
     var body: some View {
         GeometryReader { geometry in
@@ -16,41 +20,75 @@ struct PetalView: View {
             let size = min(width, height)
             let middle = size / 2
             
-            // Petal proportions: width to size ratio ...
-            let petalWidthRatio = 0.17
-            // ... distance from the begining of a petal to max curvature point
-            let petalCurvatureTopShift = 0.8
+            let flowerCenter = RadialLocator.Point(x: middle, y: middle)
+            let centralRadius = centerRadiusRatio * size / 2
+            let curvatureRadius = controlRadiusRatio  * size / 2
+            let period = Int(360 / qtyOfPetals)
+//
+//            Circle()
+//                .scale(centerRadiusRatio)
+//                .fill(.yellow)
             
-            Path { path in
-                path.move(to: CGPoint(x: 0, y: middle))
-                path.addQuadCurve(
-                    to: CGPoint(x: size, y: middle),
-                    control: CGPoint(
-                        x: size * petalCurvatureTopShift,
-                        y: middle - size * petalWidthRatio
+            ForEach(0..<qtyOfPetals) { angle in
+                
+                Path { path in
+                    let petalStart = RadialLocator(
+                        center: flowerCenter,
+                        radius: centralRadius,
+                        angleDeg: Double(period * angle)
                     )
-                )
-                path.addQuadCurve(
-                    to: CGPoint(x: 0, y: middle),
-                    control: CGPoint(
-                        x: size * petalCurvatureTopShift,
-                        y: middle + size * petalWidthRatio
+                    
+                    let petalEnd = RadialLocator(
+                        center: flowerCenter,
+                        radius: middle, // equal to size / 2
+                        angleDeg: Double(period * angle)
+                    )
+                    
+                    let control1 = RadialLocator(
+                        center: flowerCenter,
+                        radius: curvatureRadius,
+                        angleDeg: Double(period * angle - 20)
+                    )
+                    
+                    let control2 = RadialLocator(
+                        center: flowerCenter,
+                        radius: curvatureRadius,
+                        angleDeg: Double(period * angle + 20)
+                    )
+                    
+                    path.move(to: CGPoint(x: petalStart.x, y: petalStart.y))
+                    path.addQuadCurve(
+                        to: CGPoint(x: petalEnd.x, y: petalEnd.y),
+                        control: CGPoint(x: control1.x, y: control1.y)
+                    )
+                    path.addQuadCurve(
+                        to: CGPoint(x: petalStart.x, y: petalStart.y),
+                        control: CGPoint(x: control2.x, y: control2.y)
+                    )
+                }
+                .fill(
+                    RadialGradient(
+                        colors: [.white, .gray],
+                        center: .center,
+                        startRadius: 0,
+                        endRadius: middle
                     )
                 )
             }
-            .fill(
-                LinearGradient(
-                    colors: [.white, .gray],
-                    startPoint: UnitPoint(
-                        x: petalCurvatureTopShift,
-                        y: 0.5 - petalWidthRatio / 2
+
+            Path { path in
+                path.addArc(
+                    center: CGPoint(
+                        x: flowerCenter.x,
+                        y: flowerCenter.y
                     ),
-                    endPoint: UnitPoint(
-                        x: petalCurvatureTopShift,
-                        y: 0.5 + petalWidthRatio / 2
-                    )
+                    radius: centralRadius,
+                    startAngle: .degrees(0),
+                    endAngle: .degrees(360),
+                    clockwise: true
                 )
-            )
+            }
+            .fill(.yellow)
         }
     }
 }
@@ -58,6 +96,6 @@ struct PetalView: View {
 struct PetalView_Previews: PreviewProvider {
     static var previews: some View {
         PetalView()
-            .frame(width: 250, height: 250)
+            .frame(width: 200, height: 200)
     }
 }
